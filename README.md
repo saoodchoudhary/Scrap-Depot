@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Scrap Depot — scrapdepot.in
 
-## Getting Started
+Marketing site for **Scrap Depot**, a Mumbai-based recycler handling e-waste,
+lithium-ion batteries, metal scrap, industrial dismantling, secure data
+destruction and EPR compliance.
 
-First, run the development server:
+Built with Next.js 16 (App Router), React 19 and Tailwind CSS v4.
+
+## Running locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # http://localhost:3000
+npm run build   # production build
+npm run lint    # eslint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+src/
+  app/
+    layout.js                 root layout — fonts, metadata, Organization JSON-LD
+    page.js                   home
+    actions.js                server actions for the quote + contact forms
+    sitemap.js  robots.js     generated /sitemap.xml and /robots.txt
+    not-found.js              404
+    about/  services/  materials/  process/  sustainability/
+    infrastructure/  clients/  resources/  careers/  contact/
+    quote/  policies/
+      [slug]/                 dynamic detail pages (services, resources, policies)
+  components/                 header, footer, forms, SVG art, UI primitives
+  data/
+    site.js                   brand, contact details, navigation
+    services.js               the six service streams
+    materials.js              rate card
+    content.js                stats, timeline, clients, posts, jobs, policies, FAQs
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Editing content
 
-## Learn More
+Almost all copy lives in `src/data/`. Adding a service, an article or a policy is
+a matter of appending an object to the relevant array — the listing pages,
+detail routes and sitemap all derive from it.
 
-To learn more about Next.js, take a look at the following resources:
+## Before going live
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The following are **sample placeholders** and must be replaced:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Contact details** — phone numbers, email addresses, office addresses,
+  CIN / GSTIN / CPCB registration numbers in `src/data/site.js`.
+- **Rates** — the indicative figures in `src/data/materials.js`.
+- **Statistics and certifications** — `impactStats`, `secondaryStats`,
+  `certifications` and `milestones` in `src/data/content.js`.
+- **Client names and testimonials** — `clientLogos`, `clientSectors`,
+  `testimonials` in `src/data/content.js`, plus the case studies in
+  `src/app/clients/page.js`.
+- **Team bios** — `leadership` in `src/app/about/page.js`.
+- **Form delivery** — `deliverEnquiry()` in `src/app/actions.js` currently logs
+  to the server console. Point it at an email service or the CRM.
+- **Social links** — `site.socials` in `src/data/site.js`.
 
-## Deploy on Vercel
+## Imagery
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Photography is stood in for by hand-built SVG compositions in
+`src/components/patterns.js` (`<ArtPanel>`, `<ArtFrame>`, `<HeroField>`). They
+are weightless and theme-consistent; swap any of them for a `next/image` once
+real facility photography exists — the surrounding layout does not change.

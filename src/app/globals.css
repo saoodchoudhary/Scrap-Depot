@@ -1,26 +1,208 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ------------------------------------------------------------------
+   Scrap Depot — design tokens
+   Palette: deep forest greens + brass/gold + warm cream (classic luxe)
+------------------------------------------------------------------- */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display), "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* Greens */
+  --color-ink: #071A13;
+  --color-forest-950: #08251B;
+  --color-forest-900: #0B3327;
+  --color-forest-800: #0F4232;
+  --color-forest-700: #14543F;
+  --color-forest-600: #1B6A4F;
+  --color-forest-500: #268361;
+  --color-forest-400: #3FA37C;
+  --color-forest-300: #6FC29E;
+  --color-forest-200: #A8DCC3;
+  --color-forest-100: #D8F0E4;
+
+  /* Brass / gold */
+  --color-brass-700: #8A6A20;
+  --color-brass-600: #A9842C;
+  --color-brass-500: #C4A24B;
+  --color-brass-400: #D7BB70;
+  --color-brass-300: #E6D2A0;
+  --color-brass-200: #F1E5C8;
+
+  /* Neutrals */
+  --color-cream: #FBF9F4;
+  --color-sand: #F2EDE1;
+  --color-stone: #E2DCCC;
+  --color-slate-ink: #33403A;
+  --color-muted: #6B7A72;
+
+  /* Type scale helpers */
+  --text-hero: clamp(2.35rem, 5vw, 4.35rem);
+  --text-display: clamp(1.95rem, 3.9vw, 3.15rem);
+  --text-title: clamp(1.55rem, 2.4vw, 2.2rem);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-rise: rise 0.9s var(--ease-out-soft) both;
+  --animate-drift: drift 16s ease-in-out infinite;
+  --animate-sheen: sheen 7s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes drift {
+    0%, 100% { transform: translate3d(0,0,0) scale(1); }
+    50%      { transform: translate3d(0,-18px,0) scale(1.03); }
+  }
+  @keyframes sheen {
+    0%, 100% { opacity: .35; }
+    50%      { opacity: .8; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------- */
+
+@layer base {
+  * {
+    border-color: color-mix(in oklab, var(--color-stone) 70%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-brass-500);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  /* Elegant scrollbar */
+  ::-webkit-scrollbar { width: 11px; height: 11px; }
+  ::-webkit-scrollbar-track { background: var(--color-sand); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-forest-700);
+    border: 3px solid var(--color-sand);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-forest-600); }
+}
+
+/* ------------------------------------------------------------------
+   Utilities
+------------------------------------------------------------------- */
+
+@utility shell {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 82.5rem;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility rule-gold {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-brass-500) 18%,
+    var(--color-brass-500) 82%,
+    transparent
+  );
+}
+
+/* Fine grain / paper texture overlay */
+@utility grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@utility text-gold-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-brass-300),
+    var(--color-brass-500) 42%,
+    var(--color-brass-200) 70%,
+    var(--color-brass-400)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Reveal-on-scroll (progressive enhancement: visible by default) */
+@layer components {
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 0.85s var(--ease-out-soft),
+      transform 0.85s var(--ease-out-soft);
+    will-change: opacity, transform;
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s var(--ease-out-soft);
+  }
+  .link-underline:hover { background-size: 100% 1px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

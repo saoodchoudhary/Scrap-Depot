@@ -10,7 +10,7 @@ import { Section, SectionHeading, Eyebrow, Badge, GoldRule } from "@/components/
 export const metadata = {
   title: "Resources",
   description:
-    "Practical writing on EPR compliance, scrap grading, lithium-ion storage safety, plant dismantling and secure data destruction — from the people who do it daily.",
+    "Practical writing on EPR compliance, scrap grading, lamp handling safety, plant dismantling and secure data destruction — from the people who do it daily.",
   alternates: { canonical: "/resources" },
 };
 

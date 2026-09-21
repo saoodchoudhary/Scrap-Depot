@@ -51,7 +51,7 @@ export function Logo({ tone = "dark", className, compact = false }) {
           isLight ? "text-forest-950" : "text-forest-900"
         )}
       />
-      <span className="flex flex-col leading-none">
+      <span className="flex flex-col whitespace-nowrap leading-none">
         <span
           className={cx(
             "font-display tracking-tight",

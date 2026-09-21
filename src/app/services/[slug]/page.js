@@ -41,7 +41,8 @@ export async function generateMetadata({ params }) {
 
 const artMap = {
   "e-waste-recycling": "circuit",
-  "battery-recycling": "orbit",
+  "lamp-recycling": "orbit",
+  "office-dismantling": "grid",
   "metal-scrap": "stack",
   "industrial-scrap": "flow",
   "data-destruction": "grid",

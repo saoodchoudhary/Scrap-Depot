@@ -21,7 +21,7 @@ const body = Inter({
 export const metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — E-Waste, Battery & Metal Scrap Recycling in India`,
+    default: `${site.name} — E-Waste, Lamp & Metal Scrap Recycling in India`,
     template: `%s · ${site.name}`,
   },
   description: site.shortDesc,
@@ -29,10 +29,11 @@ export const metadata = {
   keywords: [
     "scrap dealer Mumbai",
     "e-waste recycling India",
-    "lithium ion battery recycling",
+    "lamp and tube light recycling",
+    "office dismantling Mumbai",
     "metal scrap buyer",
     "EPR compliance e-waste",
-    "CPCB authorised recycler",
+    "MPCB authorised recycler",
     "industrial scrap dismantling",
     "secure data destruction India",
   ],
@@ -75,7 +76,7 @@ function OrganizationJsonLd() {
     url: site.url,
     description: site.shortDesc,
     foundingDate: String(site.founded),
-    email: site.emails[0].value,
+    email: site.email,
     telephone: site.phones[0].value,
     address: site.offices.map((o) => ({
       "@type": "PostalAddress",
@@ -91,7 +92,6 @@ function OrganizationJsonLd() {
       areaServed: "IN",
       availableLanguage: ["en", "hi", "mr"],
     })),
-    sameAs: site.socials.map((s) => s.href),
   };
 
   return (

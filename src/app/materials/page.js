@@ -9,7 +9,7 @@ import { site } from "@/data/site";
 export const metadata = {
   title: "Materials & Rates",
   description:
-    "Indicative buying rates for copper, brass, aluminium, ferrous scrap, e-waste boards and lithium-ion batteries. Over 200 grades, benchmarked to LME and domestic indices.",
+    "Indicative buying rates for copper, brass, aluminium, ferrous scrap, e-waste boards, lamps and office clearance material. Over 200 grades, benchmarked to LME and domestic indices.",
   alternates: { canonical: "/materials" },
 };
 

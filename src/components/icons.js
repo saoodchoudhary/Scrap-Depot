@@ -21,11 +21,23 @@ const paths = {
       <path d="M4 10h3M4 14h3M17 10h3M17 14h3M10 4v3M14 4v3M10 17v3M14 17v3" />
     </>
   ),
-  battery: (
+  lamp: (
     <>
-      <rect x="2.5" y="8" width="16" height="9" rx="2" />
-      <path d="M18.5 11.5h2.2a.8.8 0 0 1 .8.8v1.4a.8.8 0 0 1-.8.8h-2.2" />
-      <path d="M9.8 10.4 7.6 13.2h3.1l-1.4 2.6" />
+      {/* Linear fluorescent tube with end caps */}
+      <rect x="2.6" y="9.4" width="18.8" height="5.2" rx="2.6" />
+      <path d="M5.6 9.4v5.2M18.4 9.4v5.2" />
+      <path d="M8.6 12h6.8" />
+      <path d="M12 3.2v2.6M7.4 4.6l1.3 2.2M16.6 4.6l-1.3 2.2" />
+    </>
+  ),
+  desk: (
+    <>
+      {/* Workstation: monitor on a desk */}
+      <rect x="6.4" y="3.6" width="11.2" height="7.4" rx="1.2" />
+      <path d="M12 11v2.2M9.6 13.2h4.8" />
+      <path d="M2.5 14.4h19" />
+      <path d="M4.6 14.4V20M19.4 14.4V20" />
+      <path d="M4.6 17.6h5.2" />
     </>
   ),
   ingot: (
@@ -147,33 +159,6 @@ const paths = {
   whatsapp: (
     <path
       d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 1.9a8.1 8.1 0 0 1 6.9 12.4l-.3.5.7 2.5-2.6-.7-.5.3A8.1 8.1 0 1 1 12 3.9zm-3.6 4c-.2 0-.5.1-.7.4-.3.3-1 .9-1 2.2s1 2.6 1.2 2.8c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.7 3.4.7.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.2.1-1.3l-.6-.3-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.2.2-.3.2-.5.1a7.9 7.9 0 0 1-2.4-1.5c-.9-.8-1.5-1.8-1.6-2-.2-.3 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4z"
-      fill="currentColor"
-      stroke="none"
-    />
-  ),
-  linkedin: (
-    <path
-      d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9.5h4v11H3zM10 9.5h3.8v1.5h.05A4.2 4.2 0 0 1 17.6 9c4 0 4.7 2.6 4.7 6v5.5h-4V15.8c0-1.5 0-3.4-2-3.4s-2.3 1.6-2.3 3.3v4.8h-4z"
-      fill="currentColor"
-      stroke="none"
-    />
-  ),
-  instagram: (
-    <>
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
-    </>
-  ),
-  youtube: (
-    <>
-      <rect x="2.5" y="5.5" width="19" height="13" rx="4" />
-      <path d="m10.2 9.5 5 2.5-5 2.5z" fill="currentColor" stroke="none" />
-    </>
-  ),
-  x: (
-    <path
-      d="M3 3h4.3l4.5 6.1L17.2 3H21l-6.9 7.9L21.4 21H17l-4.8-6.5L6.6 21H3l7.2-8.3z"
       fill="currentColor"
       stroke="none"
     />

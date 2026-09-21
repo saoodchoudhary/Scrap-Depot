@@ -33,9 +33,9 @@ import {
 } from "@/components/ui";
 
 export const metadata = {
-  title: "Scrap Depot — E-Waste, Battery & Metal Scrap Recycling in India",
+  title: "Scrap Depot — E-Waste, Lamp & Metal Scrap Recycling in India",
   description:
-    "CPCB-authorised R4 recycler in Mumbai. Transparent weigh-and-pay rates, pickup in 24–48 hours, secure data destruction and audit-ready EPR compliance across 21 states.",
+    "MPCB-authorised R4 recycler in Mumbai. Transparent weigh-and-pay rates, pickup in 24–48 hours, lamp recycling, office dismantling and audit-ready EPR compliance across 21 states.",
   alternates: { canonical: "/" },
 };
 
@@ -55,7 +55,7 @@ function Hero() {
       <div className="shell relative pt-14 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
         <div className="max-w-3xl">
           <Reveal>
-            <Eyebrow tone="light">CPCB Authorised R4 Recycler · Since 2011</Eyebrow>
+            <Eyebrow tone="light">MPCB Authorised R4 Recycler · Since 2011</Eyebrow>
           </Reveal>
 
           <Reveal delay={90}>
@@ -68,9 +68,9 @@ function Hero() {
 
           <Reveal delay={160}>
             <p className="mt-6 max-w-xl text-[1rem] leading-relaxed text-forest-100/72 sm:text-[1.08rem]">
-              We buy, collect and genuinely recycle e-waste, lithium-ion batteries and industrial
-              metal — weighed in front of you, paid within 24 hours, and documented well enough to
-              survive an audit.
+              We buy, collect and genuinely recycle e-waste, lamps and industrial metal — weighed
+              in front of you, paid within 24 hours, and documented well enough to survive an
+              audit.
             </p>
           </Reveal>
 
@@ -207,7 +207,7 @@ function AboutPreview() {
           <Reveal delay={100}>
             <p className="mt-5 max-w-2xl text-[0.98rem] leading-relaxed text-muted">
               Today we run a 3.5-acre licensed facility in Taloja with dedicated e-waste dismantling,
-              mechanical separation and lithium-ion lines — plus an in-house assay lab that tells you
+              mechanical separation and lamp recycling lines — plus an in-house assay lab that tells you
               what your material actually contains rather than what a rate card assumes.
             </p>
           </Reveal>
@@ -251,7 +251,7 @@ function Solutions() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               eyebrow="What we do"
-              title="Six streams, one accountable vendor."
+              title="Seven streams, one accountable vendor."
               lead="Most clients start with one line and consolidate the rest within a year — because a single weighment protocol and a single set of certificates is worth more than a marginally better rate."
             />
             <Button href="/services" variant="outline" className="shrink-0">
@@ -290,6 +290,26 @@ function Solutions() {
               </Link>
             </Reveal>
           ))}
+
+          {/* Fills the grid to a clean 9 cells on desktop, 8 on tablet. */}
+          <Reveal delay={services.length * 60} className="lg:col-span-2">
+            <Link
+              href="/quote"
+              className="group flex h-full flex-col justify-center bg-forest-900 p-8 transition-colors duration-400 hover:bg-forest-800 lg:p-9"
+            >
+              <Eyebrow tone="light">Not sure which one?</Eyebrow>
+              <h3 className="mt-5 max-w-md font-display text-[1.5rem] leading-snug text-cream">
+                Send us photographs and we will tell you what it is and what it is worth.
+              </h3>
+              <span className="mt-7 inline-flex items-center gap-2.5 text-[0.76rem] font-semibold uppercase tracking-[0.16em] text-brass-400">
+                Get a free valuation
+                <Icon
+                  name="arrow"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </span>
+            </Link>
+          </Reveal>
         </div>
       </div>
     </Section>
@@ -461,7 +481,7 @@ function MaterialsPreview() {
     { name: "Non-Ferrous", items: ["Copper", "Brass", "Aluminium", "Lead", "Zinc"], icon: "ingot" },
     { name: "Ferrous", items: ["HMS 1 & 2", "Turnings", "Cast iron", "SS 304 / 316", "Structural"], icon: "factory" },
     { name: "E-Waste", items: ["Server boards", "Laptops", "Monitors", "RAM & CPUs", "SMPS"], icon: "chip" },
-    { name: "Batteries", items: ["Li-Ion NMC", "Li-Ion LFP", "Lead-acid", "Ni-Cd", "EV packs"], icon: "battery" },
+    { name: "Lamps & Lighting", items: ["Fluorescent tubes", "CFL & PL lamps", "HID & sodium", "LED fittings", "Ballasts & chokes"], icon: "lamp" },
   ];
 
   return (

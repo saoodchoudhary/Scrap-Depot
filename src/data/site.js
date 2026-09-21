@@ -1,7 +1,8 @@
 /**
  * Central brand + contact configuration.
- * NOTE: All contact details below are SAMPLE placeholders — replace with the
- * live details before going to production.
+ * NOTE: addresses and registration numbers below are SAMPLE placeholders —
+ * replace with the live details before going to production. Phone numbers and
+ * the email address are live.
  */
 
 export const site = {
@@ -11,22 +12,18 @@ export const site = {
   url: "https://scrapdepot.in",
   tagline: "Scrap ka sahi daam. Planet ka sahi haq.",
   shortDesc:
-    "CPCB-authorised recycler for e-waste, lithium-ion batteries and industrial metal scrap — transparent weighing, same-day pickup and audit-ready compliance documentation.",
+    "MPCB-authorised recycler for e-waste, fluorescent lamps and industrial metal scrap — transparent weighing, same-day pickup and audit-ready compliance documentation.",
   founded: 2011,
   established: "Established 2011 · Mumbai",
 
   phones: [
-    { label: "Sales & pickup", value: "+91 98200 45120", tel: "+919820045120" },
-    { label: "Corporate desk", value: "+91 98200 45121", tel: "+919820045121" },
+    { label: "Sales & pickup", value: "+91 72786 66686", tel: "+917278666686" },
+    { label: "Corporate desk", value: "+91 97681 55039", tel: "+919768155039" },
   ],
-  whatsapp: { value: "+91 98200 45120", link: "https://wa.me/919820045120" },
+  whatsapp: { value: "+91 72786 66686", link: "https://wa.me/917278666686" },
 
-  emails: [
-    { label: "General enquiries", value: "info@scrapdepot.in" },
-    { label: "Bulk & corporate", value: "sales@scrapdepot.in" },
-    { label: "EPR & compliance", value: "compliance@scrapdepot.in" },
-    { label: "Careers", value: "careers@scrapdepot.in" },
-  ],
+  email: "thescrapdepot@gmail.com",
+  emails: [{ label: "All enquiries", value: "thescrapdepot@gmail.com" }],
 
   hours: [
     { days: "Monday – Saturday", time: "9:30 AM – 7:00 PM" },
@@ -42,8 +39,8 @@ export const site = {
         "Plot 22, Road No. 16, MIDC Andheri East",
         "Mumbai 400 093, Maharashtra",
       ],
-      phone: "+91 98200 45120",
-      tel: "+919820045120",
+      phone: "+91 72786 66686",
+      tel: "+917278666686",
     },
     {
       type: "Recycling Facility",
@@ -53,8 +50,8 @@ export const site = {
         "Panvel, Navi Mumbai 410 208",
         "Maharashtra, India",
       ],
-      phone: "+91 22 4890 5120",
-      tel: "+912248905120",
+      phone: "+91 97681 55039",
+      tel: "+919768155039",
     },
     {
       type: "Collection Hub",
@@ -64,23 +61,16 @@ export const site = {
         "Khed, Pune 410 501",
         "Maharashtra, India",
       ],
-      phone: "+91 90040 78120",
-      tel: "+919004078120",
+      phone: "+91 72786 66686",
+      tel: "+917278666686",
     },
   ],
 
   registrations: [
     { label: "CIN", value: "U37100MH2011PTC221450" },
     { label: "GSTIN", value: "27AABCS1429R1ZP" },
-    { label: "CPCB Registration", value: "CPCB/EW/R-4/2024/SD-1187" },
-    { label: "MPCB Consent", value: "MPCB/RO-RAIGAD/CC-4402" },
-  ],
-
-  socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/company/scrapdepot", icon: "linkedin" },
-    { label: "Instagram", href: "https://www.instagram.com/scrapdepot.in", icon: "instagram" },
-    { label: "YouTube", href: "https://www.youtube.com/@scrapdepot", icon: "youtube" },
-    { label: "X", href: "https://x.com/scrapdepot_in", icon: "x" },
+    { label: "MPCB Authorisation", value: "MPCB/EW/R-4/2024/SD-1187" },
+    { label: "MPCB Consent to Operate", value: "MPCB/RO-RAIGAD/CC-4402" },
   ],
 };
 
@@ -92,8 +82,9 @@ export const navigation = [
     href: "/services",
     children: [
       { label: "E-Waste Recycling", href: "/services/e-waste-recycling", desc: "R4 dismantling & recovery" },
-      { label: "Li-Ion Battery Recycling", href: "/services/battery-recycling", desc: "Black mass & metal recovery" },
+      { label: "Lamp Recycling", href: "/services/lamp-recycling", desc: "Tubes, CFLs & mercury capture" },
       { label: "Metal Scrap Trading", href: "/services/metal-scrap", desc: "Ferrous & non-ferrous" },
+      { label: "Office Dismantling", href: "/services/office-dismantling", desc: "Fit-outs, furniture & IT" },
       { label: "Industrial & Plant Scrap", href: "/services/industrial-scrap", desc: "Dismantling & clearance" },
       { label: "Secure Data Destruction", href: "/services/data-destruction", desc: "Shredding with certificate" },
       { label: "EPR & Compliance", href: "/services/epr-compliance", desc: "Targets, filings, audits" },
@@ -121,8 +112,9 @@ export const footerNav = [
     title: "Solutions",
     links: [
       { label: "E-Waste Recycling", href: "/services/e-waste-recycling" },
-      { label: "Li-Ion Battery Recycling", href: "/services/battery-recycling" },
+      { label: "Lamp Recycling", href: "/services/lamp-recycling" },
       { label: "Metal Scrap Trading", href: "/services/metal-scrap" },
+      { label: "Office Dismantling", href: "/services/office-dismantling" },
       { label: "Industrial & Plant Scrap", href: "/services/industrial-scrap" },
       { label: "Secure Data Destruction", href: "/services/data-destruction" },
       { label: "EPR & Compliance", href: "/services/epr-compliance" },

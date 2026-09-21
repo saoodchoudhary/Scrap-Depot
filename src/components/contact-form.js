@@ -11,10 +11,12 @@ const SUBJECTS = [
   "General enquiry",
   "Request a pickup",
   "Bulk / corporate contract",
-  "EPR & compliance",
+  "Lamp recycling",
+  "Office dismantling",
   "Plant dismantling project",
+  "Secure data destruction",
+  "EPR & compliance",
   "Careers",
-  "Media & partnerships",
 ];
 
 export function ContactForm() {
@@ -39,7 +41,13 @@ export function ContactForm() {
   const e = state.errors ?? {};
 
   return (
-    <form key={state.attempt} action={formAction} noValidate className="space-y-5">
+    <form key={state.attempt} action={formAction} noValidate className="relative space-y-5">
+      {/* Honeypot — hidden from people, irresistible to bots. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       {state.status === "error" && state.message ? (
         <p
           role="alert"
@@ -57,7 +65,7 @@ export function ContactForm() {
           <Input name="email" type="email" defaultValue={v.email} placeholder="you@company.in" autoComplete="email" error={e.email} />
         </Field>
         <Field label="Mobile" name="phone" error={e.phone}>
-          <Input name="phone" type="tel" defaultValue={v.phone} placeholder="98200 45120" autoComplete="tel" error={e.phone} />
+          <Input name="phone" type="tel" defaultValue={v.phone} placeholder="98765 43210" autoComplete="tel" error={e.phone} />
         </Field>
         <Field label="Subject" name="subject">
           <Select name="subject" defaultValue={v.subject ?? SUBJECTS[0]}>

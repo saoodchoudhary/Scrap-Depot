@@ -27,12 +27,12 @@ const caseStudies = [
     ],
   },
   {
-    sector: "Automotive",
+    sector: "Manufacturing",
     title: "Three quarters of missed EPR targets, regularised",
-    body: "An EV two-wheeler manufacturer engaged us with a significant battery-EPR shortfall and an open CPCB query. We rebuilt the filing history, closed the gap with genuine processed tonnage, and sat with their team through the reconciliation.",
+    body: "An appliance manufacturer engaged us with a significant e-waste EPR shortfall and an open MPCB query. We rebuilt the filing history, closed the gap with genuine processed tonnage, and sat with their team through the reconciliation.",
     metrics: [
       { v: "3", l: "Quarters regularised" },
-      { v: "412 MT", l: "Battery tonnage processed" },
+      { v: "412 MT", l: "E-waste tonnage processed" },
       { v: "Nil", l: "Penalty levied" },
     ],
   },

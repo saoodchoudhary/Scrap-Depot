@@ -11,7 +11,7 @@ import { Section, SectionHeading, Eyebrow, Button, GoldRule } from "@/components
 export const metadata = {
   title: "Contact Us",
   description:
-    "Call +91 98200 45120, WhatsApp photographs of your material, or write to info@scrapdepot.in. Head office in Andheri East, plant at Taloja, hub at Chakan Pune.",
+    "Call +91 72786 66686 or +91 97681 55039, WhatsApp photographs of your material, or write to thescrapdepot@gmail.com. Head office in Andheri East, plant at Taloja, hub at Chakan Pune.",
   alternates: { canonical: "/contact" },
 };
 
@@ -32,7 +32,7 @@ const channels = [
     icon: "mail",
     title: "Email us",
     body: "For asset registers, tender documents and anything that needs an attachment.",
-    action: { label: site.emails[0].value, href: `mailto:${site.emails[0].value}` },
+    action: { label: site.email, href: `mailto:${site.email}` },
   },
 ];
 
@@ -96,22 +96,33 @@ export default function ContactPage() {
           <div className="space-y-8">
             <Reveal delay={60}>
               <div className="border border-stone bg-sand p-7 sm:p-8">
-                <Eyebrow>Departments</Eyebrow>
+                <Eyebrow>Direct lines</Eyebrow>
                 <GoldRule className="my-6" />
                 <ul className="space-y-4">
-                  {site.emails.map((e) => (
-                    <li key={e.value} className="flex flex-col gap-0.5">
+                  {site.phones.map((p) => (
+                    <li key={p.tel} className="flex flex-col gap-0.5">
                       <span className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-muted">
-                        {e.label}
+                        {p.label}
                       </span>
                       <a
-                        href={`mailto:${e.value}`}
+                        href={`tel:${p.tel}`}
                         className="text-[0.92rem] text-forest-900 transition-colors hover:text-brass-600"
                       >
-                        {e.value}
+                        {p.value}
                       </a>
                     </li>
                   ))}
+                  <li className="flex flex-col gap-0.5">
+                    <span className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-muted">
+                      Email
+                    </span>
+                    <a
+                      href={`mailto:${site.email}`}
+                      className="text-[0.92rem] break-all text-forest-900 transition-colors hover:text-brass-600"
+                    >
+                      {site.email}
+                    </a>
+                  </li>
                 </ul>
               </div>
             </Reveal>

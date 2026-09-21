@@ -10,7 +10,7 @@ import { site } from "@/data/site";
 export const metadata = {
   title: "Infrastructure",
   description:
-    "A 3.5-acre CPCB-authorised recovery plant at Taloja with e-waste dismantling, mechanical separation, a lithium-ion battery bay, secure destruction room, assay lab and 34-vehicle fleet.",
+    "A 3.5-acre MPCB-authorised recovery plant at Taloja with e-waste dismantling, mechanical separation, a mercury-controlled lamp bay, secure destruction room, assay lab and 34-vehicle fleet.",
   alternates: { canonical: "/infrastructure" },
 };
 
@@ -20,7 +20,7 @@ const gallery = [
   { variant: "stack", caption: "Baling & storage yard" },
   { variant: "circuit", caption: "Manual dismantling bay" },
   { variant: "flow", caption: "Separation line control" },
-  { variant: "orbit", caption: "Battery discharge bays" },
+  { variant: "orbit", caption: "Lamp crushing chamber" },
   { variant: "grid", caption: "Secure destruction room" },
   { variant: "strata", caption: "Assay laboratory" },
 ];
@@ -170,7 +170,7 @@ export default function InfrastructurePage() {
                     "ISO 45001 occupational health & safety management system",
                     "Permit-to-work for hot work, height, confined space and lifting",
                     "Annual audiometry and lung-function screening at company cost",
-                    "Negative-pressure hoods and wet scrubbing on the battery line",
+                    "Sealed negative-pressure chamber and carbon filtration on the lamp line",
                     "Full PPE replaced on condition, not on schedule",
                     "Near-miss reporting reviewed within 48 hours, system-focused",
                   ]}

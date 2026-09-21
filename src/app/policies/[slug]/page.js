@@ -71,10 +71,10 @@ export default async function PolicyPage({ params }) {
                 <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">
                   Write to{" "}
                   <a
-                    href={`mailto:${site.emails[2].value}`}
+                    href={`mailto:${site.email}`}
                     className="font-medium text-forest-800 underline underline-offset-2"
                   >
-                    {site.emails[2].value}
+                    {site.email}
                   </a>{" "}
                   or call {site.phones[1].value}. We respond to policy queries within thirty days,
                   and usually a great deal sooner.

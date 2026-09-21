@@ -70,10 +70,10 @@ export default function CareersPage() {
               <SectionHeading
                 eyebrow="Open roles"
                 title="Where we're hiring right now."
-                lead="Apply with a CV to careers@scrapdepot.in quoting the role title. We reply to every application, including the ones we decline."
+                lead="Apply with a CV to thescrapdepot@gmail.com quoting the role title. We reply to every application, including the ones we decline."
               />
-              <Button href={`mailto:${site.emails[3].value}`} variant="outline" icon="mail" className="shrink-0">
-                {site.emails[3].value}
+              <Button href={`mailto:${site.email}`} variant="outline" icon="mail" className="shrink-0">
+                {site.email}
               </Button>
             </div>
           </Reveal>
@@ -102,7 +102,7 @@ export default function CareersPage() {
                     <span className="hidden text-[0.88rem] text-muted lg:block">{job.dept}</span>
 
                     <a
-                      href={`mailto:${site.emails[3].value}?subject=${encodeURIComponent(
+                      href={`mailto:${site.email}?subject=${encodeURIComponent(
                         `Application — ${job.title}`
                       )}`}
                       className="inline-flex items-center gap-2 justify-self-start rounded-full border border-forest-800/25 px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-forest-900 transition-all duration-300 hover:border-forest-800 hover:bg-forest-800 hover:text-cream"
@@ -173,8 +173,8 @@ export default function CareersPage() {
                 read all of them.
               </p>
               <div className="mt-9 flex flex-wrap justify-center gap-3.5">
-                <Button href={`mailto:${site.emails[3].value}`} variant="primary" icon="mail">
-                  {site.emails[3].value}
+                <Button href={`mailto:${site.email}`} variant="primary" icon="mail">
+                  {site.email}
                 </Button>
                 <Button href={`tel:${site.phones[1].tel}`} variant="outline" icon="phone">
                   {site.phones[1].value}

@@ -12,11 +12,11 @@ const initialState = { status: "idle", attempt: 0, errors: {}, values: {}, messa
 
 const MATERIALS = [
   "E-waste / IT assets",
-  "Lithium-ion batteries",
-  "Lead-acid batteries",
+  "Fluorescent lamps & tubes",
   "Copper / brass / non-ferrous",
   "MS / ferrous scrap",
   "Stainless steel",
+  "Office dismantling / fit-out clearance",
   "Plant & machinery dismantling",
   "Data destruction only",
   "EPR compliance support",
@@ -75,7 +75,13 @@ export function QuoteForm({ compact = false }) {
   const e = state.errors ?? {};
 
   return (
-    <form key={state.attempt} action={formAction} noValidate className="space-y-6">
+    <form key={state.attempt} action={formAction} noValidate className="relative space-y-6">
+      {/* Honeypot — hidden from people, irresistible to bots. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       {state.status === "error" && state.message ? (
         <p
           role="alert"
@@ -95,7 +101,7 @@ export function QuoteForm({ compact = false }) {
         </Field>
 
         <Field label="Mobile number" name="phone" required error={e.phone}>
-          <Input name="phone" type="tel" defaultValue={v.phone} placeholder="98200 45120" autoComplete="tel" error={e.phone} />
+          <Input name="phone" type="tel" defaultValue={v.phone} placeholder="98765 43210" autoComplete="tel" error={e.phone} />
         </Field>
 
         <Field label="Email" name="email" error={e.email}>

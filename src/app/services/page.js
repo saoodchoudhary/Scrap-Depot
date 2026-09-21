@@ -11,18 +11,18 @@ import { Section, SectionHeading, Button, GoldRule } from "@/components/ui";
 export const metadata = {
   title: "Solutions",
   description:
-    "E-waste recycling, lithium-ion battery recovery, metal scrap trading, plant dismantling, secure data destruction and EPR compliance — six streams, one accountable vendor.",
+    "E-waste recycling, lamp recycling, metal scrap trading, office dismantling, plant clearance, secure data destruction and EPR compliance — seven streams, one accountable vendor.",
   alternates: { canonical: "/services" },
 };
 
-const artFor = ["circuit", "orbit", "stack", "flow", "grid", "strata"];
+const artFor = ["circuit", "orbit", "stack", "grid", "flow", "strata", "circuit"];
 
 export default function ServicesPage() {
   return (
     <>
       <PageHero
         eyebrow="Solutions"
-        title="Six streams. One accountable vendor."
+        title="Seven streams. One accountable vendor."
         lead="Whether it is a rack of dead servers, a shed full of turnings or an entire production line being taken out, the commitment is the same: honest weight, fast payment, and paperwork that closes."
         crumbs={[{ label: "Home", href: "/" }, { label: "Solutions" }]}
         art="flow"

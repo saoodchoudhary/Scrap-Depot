@@ -92,7 +92,7 @@ export default function PoliciesPage() {
       <CtaBand
         eyebrow="Compliance desk"
         title="Need something specific for your audit file?"
-        lead="Consent to operate, CPCB authorisation, insurance certificates, ISO certificates or a signed policy acknowledgement — tell us what your auditor asked for and we will send it."
+        lead="Consent to operate, MPCB authorisation, insurance certificates, ISO certificates or a signed policy acknowledgement — tell us what your auditor asked for and we will send it."
         primary={{ label: "Contact compliance", href: "/contact" }}
       />
     </>

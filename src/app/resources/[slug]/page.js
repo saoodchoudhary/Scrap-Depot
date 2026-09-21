@@ -136,16 +136,22 @@ export default async function ArticlePage({ params }) {
           {/* Sidebar */}
           <aside className="lg:sticky lg:top-40 lg:self-start">
             <div className="border border-stone bg-white p-7">
-              <Eyebrow>Share</Eyebrow>
-              <div className="mt-5 flex gap-2.5">
-                {site.socials.map((s) => (
-                  <span
-                    key={s.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-stone text-muted"
-                  >
-                    <Icon name={s.icon} className="h-4 w-4" />
-                  </span>
-                ))}
+              <Eyebrow>Talk to us</Eyebrow>
+              <div className="mt-5 space-y-3">
+                <a
+                  href={`tel:${site.phones[0].tel}`}
+                  className="flex items-center gap-2.5 text-[0.9rem] text-forest-900 transition-colors hover:text-brass-600"
+                >
+                  <Icon name="phone" className="h-4 w-4 text-brass-600" />
+                  {site.phones[0].value}
+                </a>
+                <a
+                  href={`mailto:${site.email}`}
+                  className="flex items-center gap-2.5 text-[0.9rem] text-forest-900 transition-colors hover:text-brass-600"
+                >
+                  <Icon name="mail" className="h-4 w-4 text-brass-600" />
+                  {site.email}
+                </a>
               </div>
 
               <GoldRule className="my-7" />

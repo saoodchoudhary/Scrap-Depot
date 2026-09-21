@@ -19,7 +19,7 @@ import {
 export const metadata = {
   title: "About Us",
   description:
-    "Scrap Depot began in 2011 with two tempos in Sakinaka. Today we run a CPCB-authorised 3.5-acre recovery plant at Taloja serving 375+ corporate accounts across 21 states.",
+    "Scrap Depot began in 2011 with two tempos in Sakinaka. Today we run an MPCB-authorised 3.5-acre recovery plant at Taloja serving 375+ corporate accounts across 21 states.",
   alternates: { canonical: "/about" },
 };
 

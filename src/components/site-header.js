@@ -12,8 +12,8 @@ import { cx } from "./ui";
 
 function UtilityBar() {
   return (
-    <div className="hidden border-b border-cream/10 bg-ink text-cream lg:block">
-      <div className="shell flex h-11 items-center justify-between text-[0.74rem]">
+    <div className="hidden border-b border-cream/10 bg-ink text-cream xl:block">
+      <div className="shell flex h-11 items-center justify-between whitespace-nowrap text-[0.74rem]">
         <div className="flex items-center gap-7">
           <a
             href={`tel:${site.phones[0].tel}`}
@@ -23,11 +23,11 @@ function UtilityBar() {
             <span className="tracking-wide">{site.phones[0].value}</span>
           </a>
           <a
-            href={`mailto:${site.emails[0].value}`}
+            href={`mailto:${site.email}`}
             className="group flex items-center gap-2 text-forest-100/75 transition-colors hover:text-brass-300"
           >
             <Icon name="mail" className="h-3.5 w-3.5 text-brass-500" />
-            <span className="tracking-wide">{site.emails[0].value}</span>
+            <span className="tracking-wide">{site.email}</span>
           </a>
           <span className="flex items-center gap-2 text-forest-100/55">
             <Icon name="clock" className="h-3.5 w-3.5 text-brass-500" />
@@ -36,25 +36,18 @@ function UtilityBar() {
         </div>
 
         <div className="flex items-center gap-6">
+          <a
+            href={`tel:${site.phones[1].tel}`}
+            className="flex items-center gap-2 text-forest-100/75 transition-colors hover:text-brass-300"
+          >
+            <Icon name="phone" className="h-3.5 w-3.5 text-brass-500" />
+            <span className="tracking-wide">{site.phones[1].value}</span>
+          </a>
+          <span className="h-3.5 w-px bg-cream/15" aria-hidden />
           <span className="flex items-center gap-2 text-[0.68rem] uppercase tracking-[0.2em] text-brass-400">
             <span className="h-1.5 w-1.5 rounded-full bg-brass-500" aria-hidden />
-            CPCB Authorised R4 Recycler
+            MPCB Authorised R4 Recycler
           </span>
-          <span className="h-3.5 w-px bg-cream/15" aria-hidden />
-          <div className="flex items-center gap-3.5">
-            {site.socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={s.label}
-                className="text-forest-100/55 transition-colors hover:text-brass-400"
-              >
-                <Icon name={s.icon} className="h-3.5 w-3.5" />
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </div>
@@ -136,7 +129,7 @@ function MobileMenu({ open, onClose, pathname }) {
   return (
     <div
       className={cx(
-        "fixed inset-0 z-[70] lg:hidden",
+        "fixed inset-0 z-[70] xl:hidden",
         open ? "pointer-events-auto" : "pointer-events-none"
       )}
       aria-hidden={!open}
@@ -300,8 +293,8 @@ export function SiteHeader() {
           <div className="shell flex items-center justify-between gap-6">
             <Logo compact={scrolled} className="py-4" />
 
-            <nav aria-label="Primary" className="hidden lg:block">
-              <ul className="flex items-center gap-8">
+            <nav aria-label="Primary" className="hidden xl:block">
+              <ul className="flex items-center gap-7">
                 {navigation.map((item) =>
                   item.children ? (
                     <Dropdown key={item.label} item={item} isActive={isActive(item)} />
@@ -337,7 +330,7 @@ export function SiteHeader() {
               <button
                 onClick={() => setMenuOpen(true)}
                 aria-label="Open menu"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-forest-800/20 text-forest-900 transition-colors hover:border-forest-800/50 hover:bg-forest-800 hover:text-cream lg:hidden"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-forest-800/20 text-forest-900 transition-colors hover:border-forest-800/50 hover:bg-forest-800 hover:text-cream xl:hidden"
               >
                 <Icon name="menu" className="h-5 w-5" />
               </button>

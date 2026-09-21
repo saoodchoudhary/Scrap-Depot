@@ -74,28 +74,32 @@ export function SiteFooter() {
                 </a>
               ))}
               <a
-                href={`mailto:${site.emails[0].value}`}
+                href={`mailto:${site.email}`}
                 className="flex items-center gap-2.5 text-[0.95rem] text-cream/85 transition-colors hover:text-brass-300"
               >
                 <Icon name="mail" className="h-4 w-4 text-brass-500" />
-                {site.emails[0].value}
+                {site.email}
               </a>
             </div>
           </div>
 
-          <div className="mt-7 flex items-center gap-3">
-            {site.socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={s.label}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/15 text-forest-100/70 transition-all duration-300 hover:-translate-y-0.5 hover:border-brass-500 hover:text-brass-400"
-              >
-                <Icon name={s.icon} className="h-4 w-4" />
-              </a>
-            ))}
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a
+              href={site.whatsapp.link}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex items-center gap-2.5 rounded-full border border-cream/15 px-5 py-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.13em] text-forest-100/75 transition-all duration-300 hover:-translate-y-0.5 hover:border-brass-500 hover:text-brass-300"
+            >
+              <Icon name="whatsapp" className="h-4 w-4" />
+              WhatsApp us
+            </a>
+            <Link
+              href="/quote"
+              className="inline-flex items-center gap-2.5 rounded-full bg-brass-500 px-5 py-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.13em] text-forest-950 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brass-400"
+            >
+              Get a quote
+              <Icon name="arrow" className="h-4 w-4" />
+            </Link>
           </div>
         </div>
 

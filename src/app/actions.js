@@ -1,11 +1,11 @@
 "use server";
 
+import { site } from "@/data/site";
+import { sendEnquiryMail } from "@/lib/mailer";
+
 /**
- * Enquiry handling.
- *
- * TODO (before launch): replace `deliverEnquiry` with a real transport —
- * e.g. Resend / SES for email, or a POST into the CRM. The validation and
- * reference-number generation below stay as they are.
+ * Enquiry handling. Submissions are emailed to the address in MAIL_TO
+ * (defaults to site.email) over SMTP — see `src/lib/mailer.js` and `.env.example`.
  */
 
 const PHONE_RE = /^(\+?91[-\s]?)?[6-9]\d{9}$/;
@@ -20,11 +20,12 @@ function reference(prefix) {
   return `${prefix}-${stamp}-${rand}`;
 }
 
-async function deliverEnquiry(kind, payload) {
-  // Placeholder transport. Swap for an email/CRM call.
-  console.log(`[scrapdepot] ${kind} enquiry received`, payload);
-  await new Promise((r) => setTimeout(r, 450));
-}
+/** Bots fill every field they find; humans never see this one. */
+const isSpam = (formData) => clean(formData.get("website")).length > 0;
+
+const DELIVERY_FAILED =
+  `We could not send that through just now. Please call ${site.phones[0].value} ` +
+  `or email ${site.email} and we will pick it up straight away.`;
 
 /* ------------------------------------------------------------ Quote form */
 
@@ -67,7 +68,47 @@ export async function submitQuote(prevState, formData) {
   }
 
   const ref = reference("SD");
-  await deliverEnquiry("quote", { ...data, ref });
+
+  // Accept and drop silently — never tell a bot why it failed.
+  if (isSpam(formData)) {
+    return {
+      status: "success",
+      attempt,
+      reference: ref,
+      message:
+        "Thank you — your enquiry is with our valuation desk. You will hear from us within one working day.",
+      errors: {},
+      values: {},
+    };
+  }
+
+  const sent = await sendEnquiryMail({
+    heading: "New quotation request",
+    subject: `Quote request — ${data.material} — ${data.name} (${ref})`,
+    reference: ref,
+    replyTo: data.email || undefined,
+    rows: [
+      ["Name", data.name],
+      ["Company", data.company],
+      ["Mobile", data.phone],
+      ["Email", data.email],
+      ["Pickup city", data.city],
+      ["Material", data.material],
+      ["Quantity", data.quantity],
+      ["Timeline", data.timeline],
+    ],
+    message: data.message,
+  });
+
+  if (!sent.ok) {
+    return {
+      status: "error",
+      attempt,
+      errors: {},
+      values: data,
+      message: DELIVERY_FAILED,
+    };
+  }
 
   return {
     status: "success",
@@ -111,7 +152,41 @@ export async function submitContact(prevState, formData) {
   }
 
   const ref = reference("SDC");
-  await deliverEnquiry("contact", { ...data, ref });
+
+  if (isSpam(formData)) {
+    return {
+      status: "success",
+      attempt,
+      reference: ref,
+      message: "Message received. Our team will respond within one working day.",
+      errors: {},
+      values: {},
+    };
+  }
+
+  const sent = await sendEnquiryMail({
+    heading: "New website message",
+    subject: `${data.subject || "Website enquiry"} — ${data.name} (${ref})`,
+    reference: ref,
+    replyTo: data.email,
+    rows: [
+      ["Name", data.name],
+      ["Email", data.email],
+      ["Mobile", data.phone],
+      ["Subject", data.subject],
+    ],
+    message: data.message,
+  });
+
+  if (!sent.ok) {
+    return {
+      status: "error",
+      attempt,
+      errors: {},
+      values: data,
+      message: DELIVERY_FAILED,
+    };
+  }
 
   return {
     status: "success",

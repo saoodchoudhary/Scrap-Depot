@@ -163,7 +163,7 @@ export default function SustainabilityPage() {
                     "Recycled copper: ~85% lower energy demand than primary production",
                     "Recycled aluminium: ~95% lower energy demand than primary smelting",
                     "Recycled steel: ~70% lower energy demand, no ore extraction",
-                    "Recovered lithium & cobalt: reduces dependence on imported critical minerals",
+                    "Recovered lamp glass & phosphor: mercury contained instead of reaching soil and groundwater",
                   ]}
                 />
               </div>
